@@ -49,3 +49,6 @@ export function fromRovarLanguage(textInput) {
   return result;
 }
 
+export function bulletPoints(textInput) {
+}
+
