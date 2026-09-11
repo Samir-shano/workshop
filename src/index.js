@@ -2,32 +2,39 @@
 
 import readline from "node:readline";
 
+const consonants = "bcdfghjklmnpqrstvwxz";
+
+const vowels = "aeiouyåäö";
+
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-rl.question("Enter a word: ", function(textInput) {
-  isConsonant(textInput);
+rl.question("Enter a word: ", function (textInput) {
+  rovarLanguage(textInput);
+
+  console.log(rovarLanguage(textInput));
   rl.close();
 });
 
 
-const consonants = "bcdfghjklmnpqrstvwxz";
+export function rovarLanguage(textInput) {
 
-const vowels = "aeiouyåäö";
+  let result = '';
 
-export function isConsonant(textInput) {
-
-  for(const char of textInput.toLowerCase()){
-    if(consonants.includes(char)){
-      return consonants + "+o"
+  for (const char of textInput) {
+    if (consonants.includes(char.toLowerCase())) {
+      result += char + "o" + char;
+    } else {
+      result += char;
     }
   }
-  return false;
+  return result;
 }
 
-export function isVowel(textOutput) {
-  
+export function swedishLanguage(textOutput) {
+
+
 }
 
