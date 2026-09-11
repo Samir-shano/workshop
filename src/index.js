@@ -15,6 +15,7 @@ rl.question("Enter a word: ", function (textInput) {
   rovarLanguage(textInput);
 
   console.log(rovarLanguage(textInput));
+  console.log(fromRovarLanguage(rovarLanguage(textInput)));
   rl.close();
 });
 
@@ -33,8 +34,18 @@ export function rovarLanguage(textInput) {
   return result;
 }
 
-export function swedishLanguage(textOutput) {
+export function fromRovarLanguage(textInput) {
+  let result = '';
 
-
+  for(let i = 0; i < textInput.length; i++) {
+    const char = textInput[i];
+    if (consonants.includes(char.toLowerCase())) {
+      result += char;
+      i += 2; // Skip the next two characters (the 'o' and the repeated consonant)
+    } else {
+      result += char;
+    }
+  }
+  return result;
 }
 
